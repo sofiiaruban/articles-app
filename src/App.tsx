@@ -23,7 +23,6 @@ const  App:FC = () =>{
   }
   return (
     <div className="App">
-      {JSON.stringify(data)}
       <Home/>
     </div>
   );
