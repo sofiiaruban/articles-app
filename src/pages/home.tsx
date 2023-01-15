@@ -2,7 +2,11 @@
 
 export const Home = () => {
     return (
-        <div className="">Home</div>
+        <>
+        <label htmlFor="article">Filter by keywords</label>
+        <input type="text" name="article"/>
+
+        </>
     )
 
 }

@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import './App.scss';
+import { Home } from './pages/home';
 import { useGetArticleByIdQuery, useGetArticlesQuery } from './services/articleApi';
 
 const  App:FC = () =>{
@@ -23,6 +24,7 @@ const  App:FC = () =>{
   return (
     <div className="App">
       {JSON.stringify(data)}
+      <Home/>
     </div>
   );
 }
