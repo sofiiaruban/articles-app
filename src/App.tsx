@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import './App.scss';
 import { useGetArticleByIdQuery, useGetArticlesQuery } from './services/articleApi';
 
-const  App:FC = ()=>{
+const  App:FC = () =>{
   const id: number = 17895;
   const {data, error, isLoading} = useGetArticleByIdQuery(id); 
 
