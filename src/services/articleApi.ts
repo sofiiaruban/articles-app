@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ArticleItems } from '../types/types'
+import { ArticleItem, ArticleItems } from '../types/types'
 
 const URL:string= process.env.REACT_APP_API_URI;
 
@@ -11,8 +11,8 @@ export const articleApi = createApi({
     getArticles: builder.query<ArticleItems, void>({
       query: () => "articles",
     }),
-    getArticleById: builder.query<ArticleItems, void>({
-      query: (id) => `articles/${id}`
+    getArticleById: builder.query<ArticleItem, number>({
+      query: (id:number) => `articles/${id}`
     })
   }),
 })
