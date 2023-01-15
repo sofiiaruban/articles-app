@@ -1,5 +1,6 @@
 export interface ArticleItem {
     id: number,
+    featured?: boolean,
     title: string,
     url: string,
     imageUrl: string,
