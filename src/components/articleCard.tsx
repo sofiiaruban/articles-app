@@ -4,6 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import styles from "./ArticleCard.module.scss";
+import { Link } from 'react-router-dom';
 
 export const ArticleCard = ({id, title, imgUrl, summary}:{
     id?: number, 
@@ -27,7 +28,9 @@ export const ArticleCard = ({id, title, imgUrl, summary}:{
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <Link to={`article/${id}`}>
         <Button size="small" color="primary">Read more </Button>
+        </Link>
       </CardActions>
     </Card>
     )
