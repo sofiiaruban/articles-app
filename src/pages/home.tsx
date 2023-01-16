@@ -3,6 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import Typography from '@mui/material/Typography';
 import { SearchIcon } from "../assets/icons/SearchIcon";
+import { ArticleCard } from "../components/ArticleCard";
 
 
 export const Home = () => {
@@ -23,6 +24,7 @@ export const Home = () => {
               }}
               variant="outlined"/>
             <Typography>Results: 6</Typography>
+            <ArticleCard/>
         </>
     )
 
