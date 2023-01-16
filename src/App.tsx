@@ -28,7 +28,7 @@ const  App:FC = () =>{
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<Article/>}/>
+          <Route path="article/:id" element={<Article/>}/>
         </Routes>
       </BrowserRouter>
   );
