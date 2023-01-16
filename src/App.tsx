@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import React, { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styles from './App.module.scss';
-import { Article } from './pages/article';
+import { ArticleInfo } from './pages/articleInfo';
 import { Home } from './pages/home';
 import { useGetArticleByIdQuery, useGetArticlesQuery } from './services/articleApi';
 
@@ -28,7 +28,7 @@ const  App:FC = () =>{
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="article/:id" element={<Article/>}/>
+          <Route path="article/:id" element={<ArticleInfo/>}/>
         </Routes>
       </BrowserRouter>
   );

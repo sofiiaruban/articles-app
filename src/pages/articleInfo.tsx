@@ -1,4 +1,4 @@
-export const Article = () => {
+export const ArticleInfo = () => {
     return (
         <div className="">Article</div>
     )
