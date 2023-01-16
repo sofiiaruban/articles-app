@@ -1,8 +1,8 @@
-import { InputAdornment } from "@mui/material"
-import FormControl from "@mui/material/FormControl"
-import InputLabel from "@mui/material/InputLabel"
-import TextField from "@mui/material/TextField"
-import { SearchIcon } from "../assets/icons/SearchIcon"
+import { InputAdornment } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import TextField from "@mui/material/TextField";
+import Typography from '@mui/material/Typography';
+import { SearchIcon } from "../assets/icons/SearchIcon";
 
 
 export const Home = () => {
@@ -22,6 +22,7 @@ export const Home = () => {
                 ),
               }}
               variant="outlined"/>
+            <Typography>Results: 6</Typography>
         </>
     )
 
