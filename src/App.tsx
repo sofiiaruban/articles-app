@@ -1,5 +1,8 @@
+import Box from '@mui/material/Box';
 import React, { FC } from 'react';
-import './App.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import styles from './App.module.scss';
+import { Article } from './pages/article';
 import { Home } from './pages/home';
 import { useGetArticleByIdQuery, useGetArticlesQuery } from './services/articleApi';
 
@@ -22,9 +25,12 @@ const  App:FC = () =>{
     )
   }
   return (
-    <div className="App">
-      <Home/>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<Article/>}/>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
