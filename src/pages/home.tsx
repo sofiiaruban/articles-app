@@ -8,12 +8,12 @@ import { SearchIcon } from "../assets/icons/SearchIcon"
 export const Home = () => {
     return (
         <>
-        <FormControl>
         <InputLabel shrink htmlFor="outlined-basic">
         Filter by keywords
         </InputLabel>
             <TextField
               id="outlined-basic"
+              size="small"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -22,11 +22,6 @@ export const Home = () => {
                 ),
               }}
               variant="outlined"/>
-        </FormControl>
-        
-        
-        
-
         </>
     )
 
