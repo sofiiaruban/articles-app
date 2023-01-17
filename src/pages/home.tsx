@@ -35,9 +35,9 @@ export const Home = () => {
           }}
           variant="outlined"
         />
-        <Typography>Results: 6</Typography>
-        {data?.length}
-        <List>{data?.map((item) => 
+        <Typography>Results: {data?.length}</Typography>
+        
+        <List>{data?.map((item) =>
          <ArticleCard id={item.id}
                       key={item.id}
                       title={item.title}

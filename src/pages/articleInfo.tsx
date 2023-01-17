@@ -15,6 +15,12 @@ export const ArticleInfo = ({id}:{id:number}) => {
     
   return (
     <>
+      <CardMedia
+          className={}
+          component="img"
+          image={imgUrl}
+          alt="article"
+        />
       <Typography>{data?.title}</Typography>
       <Typography>{data?.summary}</Typography>
     </>
