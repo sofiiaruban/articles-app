@@ -19,5 +19,5 @@ export interface ArticleItem {
 export interface ArticleItems extends Array<ArticleItem>{}
 
 export interface IdState {
-    id: number,
+    value: number,
 }

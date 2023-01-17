@@ -3,7 +3,7 @@ import { IdState } from '../types/types';
 import { RootState } from './store';
 
 const initialState: IdState = {
-   id: 0
+   value: 0
 }
 
 export const idSlice = createSlice(
@@ -12,7 +12,7 @@ export const idSlice = createSlice(
   initialState,
   reducers: {
     updateId: (state, action: PayloadAction<number>) => {
-      state.id = action.payload;
+      state.value = action.payload;
     }
   } 
 })
