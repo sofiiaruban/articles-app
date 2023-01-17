@@ -1,11 +1,11 @@
-import { InputAdornment } from "@mui/material";
+import { Grid, InputAdornment } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import TextField from "@mui/material/TextField";
 import Typography from '@mui/material/Typography';
 import { SearchIcon } from "../assets/icons/SearchIcon";
 import { ArticleCard } from "../components/ArticleCard";
-import {useGetArticlesQuery} from '../services/articleApi';
-import List from '@mui/material/List';
+import { useGetArticlesQuery } from "../services/articleApi";
+import styles from './Home.module.scss';
 
 export const Home = () => {
   const {data, error, isLoading} = useGetArticlesQuery();
@@ -26,6 +26,7 @@ export const Home = () => {
         <TextField
           id="outlined-basic"
           size="small"
+          fullWidth
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -36,15 +37,17 @@ export const Home = () => {
           variant="outlined"
         />
         <Typography>Results: {data?.length}</Typography>
-        
-        <List>{data?.map((item) =>
-         <ArticleCard id={item.id}
-                      key={item.id}
-                      title={item.title}
-                      imgUrl={item.imageUrl}
-                      summary={item.summary}/>
-              )}
-        </List>
+        <Grid className={styles.articleList} container columns={{ xs: 4, sm: 8, md: 12 }}>
+        {data?.map((item) =>
+            <Grid xs={2} sm={4} md={4} key={item.id}>
+             <ArticleCard id={item.id}
+                          title={item.title}
+                          imgUrl={item.imageUrl}
+                          summary={item.summary}
+              />
+            </Grid>
+        )}
+        </Grid>
         </>
     )
 
