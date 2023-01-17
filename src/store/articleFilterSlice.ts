@@ -1,22 +1,26 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IdState } from '../types/types';
+import { ArticleItem, FilterStates} from '../types/types';
 
 
-const initialState: IdState = {
-   value: 0
+const initialState: FilterStates= {
+  inputValue: "",
+  filteredList: []
 }
 
 export const articleFilterSlice = createSlice(
   { 
-  name:"id",
+  name:"filter",
   initialState,
   reducers: {
-    updateId: (state, action: PayloadAction<number>) => {
-      state.value = action.payload;
+    updateInputValue: (state, action: PayloadAction<string>) => {
+      state.inputValue = action.payload;
+    },
+    updateFilteredList: (state, action: PayloadAction<Array<ArticleItem>>) => {
+      state.filteredList = action.payload;
     }
   } 
 })
-export const { updateId } =  idSlice.actions
+export const { updateInputValue, updateFilteredList} =  articleFilterSlice.actions
 
-export default idSlice.reducer
+export default articleFilterSlice.reducer

@@ -21,6 +21,7 @@ export interface ArticleItems extends Array<ArticleItem>{}
 export interface IdState {
     value: number,
 }
-export interface SearchData {
-    
+export interface FilterStates {
+    inputValue: string,
+    filteredList: Array<ArticleItem>
 }
