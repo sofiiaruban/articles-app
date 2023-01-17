@@ -1,3 +1,4 @@
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IdState } from '../types/types';
 
@@ -6,7 +7,7 @@ const initialState: IdState = {
    value: 0
 }
 
-export const idSlice = createSlice(
+export const articleFilterSlice = createSlice(
   { 
   name:"id",
   initialState,
