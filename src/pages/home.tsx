@@ -23,28 +23,28 @@ export const Home = () => {
         <InputLabel shrink htmlFor="outlined-basic">
         Filter by keywords
         </InputLabel>
-            <TextField
-              id="outlined-basic"
-              size="small"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-              variant="outlined"
-            />
-            <Typography>Results: 6</Typography>
-            {data?.length}
-              <List>{data?.map((item) => 
-               <ArticleCard id={item.id}
-                            key={item.id}
-                            title={item.title}
-                            imgUrl={item.imageUrl}
-                            summary={item.summary}/>
-                    )}
-              </List>
+        <TextField
+          id="outlined-basic"
+          size="small"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
+          variant="outlined"
+        />
+        <Typography>Results: 6</Typography>
+        {data?.length}
+        <List>{data?.map((item) => 
+         <ArticleCard id={item.id}
+                      key={item.id}
+                      title={item.title}
+                      imgUrl={item.imageUrl}
+                      summary={item.summary}/>
+              )}
+        </List>
         </>
     )
 

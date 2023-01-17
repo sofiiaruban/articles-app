@@ -1,6 +1,6 @@
-export const ArticleInfo = () => {
+export const ArticleInfo = ({id}:{id?:number}) => {
     return (
-        <div className="">Article</div>
+        <div className="">ArticleInfo</div>
     )
 
 }

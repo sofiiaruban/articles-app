@@ -7,10 +7,10 @@ import styles from "./ArticleCard.module.scss";
 import { Link } from 'react-router-dom';
 
 export const ArticleCard = ({id, title, imgUrl, summary}:{
-    id?: number, 
-    title?: string,
-    imgUrl?: string,
-    summary?: string
+    id: number, 
+    title: string,
+    imgUrl: string,
+    summary: string
 }) => {
 
     return (
