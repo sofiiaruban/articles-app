@@ -1,3 +1,0 @@
-
-
-cosnt ArticleFiltred

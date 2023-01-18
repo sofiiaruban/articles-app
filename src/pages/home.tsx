@@ -13,6 +13,7 @@ import { RootState } from "../store/store";
 import { ArticleItem } from "../types/types";
 import { useDispatch } from "react-redux";
 import { updateFilteredList, updateInputValue } from "../store/articleFilterSlice";
+//import { ArticlesList } from "../components/ArticlesList";
 
 export const Home = () => {
   const {data, error, isLoading} = useGetArticlesQuery();
@@ -38,9 +39,6 @@ export const Home = () => {
   const list = articleFilter("title").concat(articleFilter("summary"));
   console.log(Array.from(new Set (list)));
 
-  cosnt mapList = () => {
-    
-  }
     return (
         <Container maxWidth="xl">
         <Box className={styles.formControl}>
@@ -63,22 +61,21 @@ export const Home = () => {
           variant="outlined"
         />
         </Box>
-        <Typography>Results: {filteredList.length}</Typography>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid className={styles.articleList} container spacing={4}>
-            {filteredList.map((article) =>
-              <Grid item xs={12} sm={6} md={4} key={article.id} >
-                <ArticleCard id={article.id}
-                            title={article.title}
-                            imgUrl={article.imageUrl}
-                            summary={article.summary}
-                            searchText={inputValue}
-                />
-              </Grid>
-            )}
+        <Typography>Results: {filteredList.length || data?.length}</Typography>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid className={styles.articleList} container spacing={4}>
+            {(data || filteredList).map((article) =>
+            <Grid item xs={12} sm={6} md={4} key={article.id} >
+            <ArticleCard id={article.id}
+                      title={article.title}
+                      imgUrl={article.imageUrl}
+                      summary={article.summary}
+                      searchText={inputValue}
+              />
             </Grid>
-          </Box>
-        </Container>
+            )}
+          </Grid>
+        </Box>
+      </Container>
     )
-
 }
