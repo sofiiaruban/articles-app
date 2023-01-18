@@ -13,6 +13,8 @@ import { RootState } from "../store/store";
 import { ArticleItem } from "../types/types";
 import { useDispatch } from "react-redux";
 import { updateFilteredList, updateInputValue } from "../store/articleFilterSlice";
+import { useTransition } from "react";
+import { StatusMessage } from "../components/StatusMessage";
 //import { ArticlesList } from "../components/ArticlesList";
 
 export const Home = () => {
@@ -22,23 +24,26 @@ export const Home = () => {
   const dispatch = useDispatch();
 
   if(isLoading) {
-    return (<Typography>Loading...</Typography>) 
+    return  (<StatusMessage message="Loading..."/>) 
   }
 
   if(error) {
-    return (<Typography> Error while loading</Typography>) 
+    return (<StatusMessage message=" Error while loading"/>) 
   }
+  
   const articleFilter = (key:any) => {
-    return data ? data.filter(article => article[key as keyof ArticleItem].includes(inputValue)) : [];
+    return data ? data.filter(article => article[key as keyof ArticleItem]
+      .toLowerCase()
+      .includes(inputValue.toLowerCase())) : [];
   }
 
   const inputChangeHandler = (event: { target: { value: any; }; }) => {
     dispatch(updateInputValue(event?.target.value));
     dispatch(updateFilteredList(articleFilter("title")));
   }
-  const list = articleFilter("title").concat(articleFilter("summary"));
-  console.log(Array.from(new Set (list)));
-
+  //const list = articleFilter("title").concat(articleFilter("summary"));
+  //console.log(Array.from(new Set (list)));
+  //console.log(inputValue);
     return (
         <Container maxWidth="xl">
         <Box className={styles.formControl}>
@@ -61,10 +66,10 @@ export const Home = () => {
           variant="outlined"
         />
         </Box>
-        <Typography>Results: {filteredList.length || data?.length}</Typography>
+        <Typography>Results: {filteredList.length}</Typography>
         <Box sx={{ flexGrow: 1 }}>
           <Grid className={styles.articleList} container spacing={4}>
-            {(data || filteredList).map((article) =>
+            {(filteredList || data).map((article) =>
             <Grid item xs={12} sm={6} md={4} key={article.id} >
             <ArticleCard id={article.id}
                       title={article.title}

@@ -18,11 +18,6 @@ export const ArticleCard = ({id, title, imgUrl, summary, searchText}:{
 }) => {
 
   const dispatch = useDispatch();
-  
-  const highlight=(searchText:string, text:string)=> {
-
-  }
-
 
     return (
     <Card className={styles.card}>

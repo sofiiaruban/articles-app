@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import { StatusMessage } from "../components/StatusMessage";
 import { useGetArticleByIdQuery } from "../services/articleApi"
 
 export const ArticleInfo = ({id}:{id:number}) => {
@@ -9,11 +10,11 @@ export const ArticleInfo = ({id}:{id:number}) => {
   const navigate = useNavigate();
 
   if(isLoading) {
-    return (<Typography>Loading...</Typography>) 
+    return (<StatusMessage message="Loading..."/>) 
   }
 
   if(error) {
-    return (<Typography>Error while loading</Typography>) 
+    return (<StatusMessage message=" Error while loading"/>) 
   }
     
   return (
