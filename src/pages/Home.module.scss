@@ -1,6 +1,18 @@
 .articleList {
-    gap: 0rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+}
+.formControl {
+    width: 35%;
+    margin: 0;
+    
 }
 .textInput {
     width: 35%;
+    margin: 0 2rem;
+    
+}
+.inputLabel {
+    padding-bottom: 2rem;
 }

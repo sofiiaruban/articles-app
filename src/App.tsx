@@ -11,12 +11,12 @@ const  App:FC = () => {
   const idValue = useSelector((state: RootState) => state.id.value);
 
   return (
-    <Box className={styles.box}>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="article/:id" element={<ArticleInfo id={idValue}/>}/>
       </Routes>
-    </Box>
+    
   );
 }
 
