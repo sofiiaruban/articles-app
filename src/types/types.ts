@@ -1,4 +1,5 @@
 export interface ArticleItem {
+    key?: any,
     id: number,
     featured?: boolean,
     title: string,
@@ -23,5 +24,5 @@ export interface IdState {
 }
 export interface FilterStates {
     inputValue: string,
-    filteredList: Array<ArticleItem>
+    filteredList: ArticleItems
 }

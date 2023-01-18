@@ -10,11 +10,15 @@ import Grid from '@mui/material/Grid';
 import Container from "@mui/system/Container";
 import { useAppSelector } from "../store/hooks";
 import { RootState } from "../store/store";
+import { ArticleItem } from "../types/types";
+import { useDispatch } from "react-redux";
+import { updateFilteredList, updateInputValue } from "../store/articleFilterSlice";
 
 export const Home = () => {
   const {data, error, isLoading} = useGetArticlesQuery();
   const filteredList = useAppSelector((state: RootState) => state.filter.filteredList);
   const inputValue = useAppSelector((state: RootState) => state.filter.inputValue);
+  const dispatch = useDispatch();
 
   if(isLoading) {
     return (<Typography>Loading...</Typography>) 
@@ -23,7 +27,17 @@ export const Home = () => {
   if(error) {
     return (<Typography> Error while loading</Typography>) 
   }
+  const articleFilter = (key:any) => {
+    return data ? data.filter(article => article[key as keyof ArticleItem].includes(inputValue)) : [];
+  }
 
+  const inputChangeHandler = (event: { target: { value: any; }; }) => {
+    dispatch(updateInputValue(event?.target.value));
+    dispatch(updateFilteredList(articleFilter("title")));
+  }
+  const list = articleFilter("title").concat(articleFilter("summary"));
+  console.log(list);
+  
     return (
         <Container maxWidth="xl">
         <Box className={styles.formControl}>
@@ -35,6 +49,7 @@ export const Home = () => {
           className={styles.textInput}
           size="small"
           fullWidth
+          onChange = {inputChangeHandler}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -45,15 +60,16 @@ export const Home = () => {
           variant="outlined"
         />
         </Box>
-        <Typography>Results: {data?.length}</Typography>
+        <Typography>Results: {filteredList.length}</Typography>
           <Box sx={{ flexGrow: 1 }}>
             <Grid className={styles.articleList} container spacing={4}>
-            {data?.map((item) =>
-              <Grid item xs={12} sm={6} md={4} key={item.id} >
-                <ArticleCard id={item.id}
-                            title={item.title}
-                            imgUrl={item.imageUrl}
-                            summary={item.summary}
+            {filteredList.map((article) =>
+              <Grid item xs={12} sm={6} md={4} key={article.id} >
+                <ArticleCard id={article.id}
+                            title={article.title}
+                            imgUrl={article.imageUrl}
+                            summary={article.summary}
+                            searchText={inputValue}
                 />
               </Grid>
             )}
