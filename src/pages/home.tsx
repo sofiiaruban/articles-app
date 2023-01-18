@@ -36,8 +36,11 @@ export const Home = () => {
     dispatch(updateFilteredList(articleFilter("title")));
   }
   const list = articleFilter("title").concat(articleFilter("summary"));
-  console.log(list);
-  
+  console.log(Array.from(new Set (list)));
+
+  cosnt mapList = () => {
+    
+  }
     return (
         <Container maxWidth="xl">
         <Box className={styles.formControl}>
