@@ -38,7 +38,7 @@ export const Home = () => {
           variant="outlined"
         />
         <Typography>Results: {data?.length}</Typography>
-        <Grid className={styles.articleList} container columns={{ xs: 4, sm: 8, md: 12 }} >
+        <Grid className={styles.articleList} container columns={{ xs: 4, sm:8, md: 12 }} >
         {data?.map((item) =>
             <Grid xs={2} sm={4} md={4} key={item.id} item={true}>
                 <ArticleCard id={item.id}
