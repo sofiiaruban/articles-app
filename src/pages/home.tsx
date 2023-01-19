@@ -39,7 +39,7 @@ export const Home = () => {
   }
   //const list = articleFilter("title").concat(articleFilter("summary"));
   
-  const inputChangeHandler = (event: { target: { value: any; }; }) => {
+  const inputChangeHandler = (event: { target: { value: string; }; }) => {
     dispatch(updateInputValue(event?.target.value));
     dispatch(updateFilteredList(articleFilter("title")));
   }
@@ -48,41 +48,43 @@ export const Home = () => {
   //console.log(Array.from(new Set (list)));
   //console.log(inputValue);
     return (
-        <Container maxWidth="xl">
-        <Box className={styles.formControl}>
-        <InputLabel shrink htmlFor="outlined-basic">
-        Filter by keywords
-        </InputLabel>
-        <TextField
-          id="outlined-basic"
-          className={styles.textInput}
-          size="small"
-          fullWidth
-          onChange = {inputChangeHandler}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          variant="outlined"
-        />
-        </Box>
-        <Typography>Results: {filteredList.length}</Typography>
-        <Box sx={{ flexGrow: 1 }}>
-          <Grid className={styles.articleList} container spacing={4}>
-            {filteredList.map((article) =>
-            <Grid item xs={12} sm={6} md={4} key={article.id} >
-            <ArticleCard id={article.id}
-                      title={article.title}
-                      imgUrl={article.imageUrl}
-                      summary={article.summary}
-                      searchText={inputValue}
-              />
+      <Container maxWidth="xl">
+        <Box className={styles.container}>
+          <Box className={styles.formControl}>
+          <Typography className={styles.inputLabel} variant="body2">
+          Filter by keywords
+          </Typography>
+          <TextField
+            id="outlined-basic"
+            className={styles.textInput}
+            fullWidth
+            onChange = {inputChangeHandler}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon className={styles.searchIcon}/>
+                </InputAdornment>
+              ),
+            }}
+            variant="outlined"
+          />
+          <Typography className={styles.results} mt={2} variant="body2">Results: {filteredList.length}</Typography>
+          </Box>
+          
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid className={styles.articleList} container spacing={4}>
+              {filteredList.map((article) =>
+              <Grid item xs={12} sm={6} md={4} key={article.id} >
+              <ArticleCard id={article.id}
+                        title={article.title}
+                        imgUrl={article.imageUrl}
+                        summary={article.summary}
+                        searchText={inputValue}
+                />
+              </Grid>
+              )}
             </Grid>
-            )}
-          </Grid>
+          </Box>
         </Box>
       </Container>
     )

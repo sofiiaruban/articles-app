@@ -30,6 +30,7 @@ export const ArticleCard = ({id, title, imgUrl, summary, searchText}:{
         />
         <CardContent>
           <Marker mark={searchText}>
+            <Typography gutterBottom></Typography>
             <Typography gutterBottom variant="h5" component="div">{title}</Typography>
           </Marker>
           <Marker mark={searchText}>

@@ -18,6 +18,13 @@ const theme = createTheme({
     allVariants: {
       fontFamily: "'Montserrat', sans-serif",
       textTransform: "none",
+    },
+    body1: {
+      fontWeight: 400,
+    },
+    body2:{
+      fontWeight: 600,
+      fontSize: "1rem",
     }
   }
 })
