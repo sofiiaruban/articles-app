@@ -26,9 +26,18 @@ const theme = createTheme({
       fontWeight: 600,
       fontSize: "1rem",
     },
+    h5:{
+      fontWeight: 400,
+      fontSize: "24px",
+    },
     button: {
       fontWeight: 600,
-      fontSize: "1.1rem",
+      fontSize: "1.2rem",
+    }
+  },
+  palette: {
+    primary: {
+      main: '#363636',
     }
   }
 })

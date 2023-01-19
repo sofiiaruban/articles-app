@@ -1,8 +1,11 @@
 .card {
-    height: 33rem;
+    height: 30rem;
     max-width: 30rem;
 }
-
+.cardContent {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 .cardMedia {
     height: 13.5rem;
 }
@@ -12,4 +15,9 @@
 }
 .calendarIcon {
     margin:  0.2rem 0 0 0;
+}
+.arrowRightIcon {
+    width: 36px;
+    height: 30px;
+    margin: 1.1rem 0 0 0;
 }

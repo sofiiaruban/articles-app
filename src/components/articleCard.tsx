@@ -12,6 +12,7 @@ import { Box, FormControl, InputAdornment } from "@mui/material";
 import { SearchIcon } from '../assets/icons/SearchIcon';
 import { CalendarIcon } from '../assets/icons/CalendarIcon';
 import { PublishedDate } from './PublishedDate';
+import { ArrowRightIcon } from '../assets/icons/ArrorRightIcon';
 export const ArticleCard = ({id, title, imgUrl, summary, searchText, date}:{
     id: number, 
     title: string,
@@ -32,23 +33,23 @@ export const ArticleCard = ({id, title, imgUrl, summary, searchText, date}:{
           image={imgUrl}
           alt="article"
         />
-        <CardContent>
+        <CardContent className={styles.cardContent}>
+          <Box className={styles.dateBox}>
+          <CalendarIcon className={styles.calendarIcon}/>
+          <PublishedDate  date={date}/>
+          </Box>
           <Marker mark={searchText}>
-            <Box className={styles.dateBox}>
-            <CalendarIcon className={styles.calendarIcon}/>
-            <PublishedDate  date={date}/>
-            </Box>
             <Typography gutterBottom variant="h5" component="div">{title}</Typography>
           </Marker>
           <Marker mark={searchText}>
-          <Typography variant="body2" color="text.secondary">{`${summary.substring(0,100)}...`}</Typography>
+            <Typography variant="body1"  color="text.secondary">{`${summary.substring(0,100)}...`}</Typography>
           </Marker>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Link to={`article/${id}`}>
-        <Button size="small" color="primary"  onClick={()=> dispatch(updateId(id))}>Read more</Button>
-        </Link>
+      <Link to={`article/${id}`}>
+        <Button sx={{"&:hover": {backgroundColor: "transparent", }}}  size="medium" onClick={()=> dispatch(updateId(id))} endIcon={<ArrowRightIcon className={styles.arrowRightIcon}/>}>Read more</Button>
+      </Link>
       </CardActions>
     </Card>
     )
