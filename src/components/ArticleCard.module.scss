@@ -1,8 +1,15 @@
 .card {
-    height: 30rem;
-    max-width: 25rem;
+    height: 33rem;
+    max-width: 30rem;
 }
 
 .cardMedia {
     height: 13.5rem;
+}
+.dateBox {
+    display: flex;
+    color: #868686;
+}
+.calendarIcon {
+    margin:  0.2rem 0 0 0;
 }

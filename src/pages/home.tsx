@@ -80,6 +80,7 @@ export const Home = () => {
                         imgUrl={article.imageUrl}
                         summary={article.summary}
                         searchText={inputValue}
+                        date={article.publishedAt}
                 />
               </Grid>
               )}

@@ -8,13 +8,17 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateId } from '../store/idSlice';
 import { Marker } from 'react-mark.js';
-
-export const ArticleCard = ({id, title, imgUrl, summary, searchText}:{
+import { Box, FormControl, InputAdornment } from "@mui/material";
+import { SearchIcon } from '../assets/icons/SearchIcon';
+import { CalendarIcon } from '../assets/icons/CalendarIcon';
+import { PublishedDate } from './PublishedDate';
+export const ArticleCard = ({id, title, imgUrl, summary, searchText, date}:{
     id: number, 
     title: string,
     imgUrl: string,
     summary: string,
-    searchText: string
+    searchText: string,
+    date:string
 }) => {
 
   const dispatch = useDispatch();
@@ -30,7 +34,10 @@ export const ArticleCard = ({id, title, imgUrl, summary, searchText}:{
         />
         <CardContent>
           <Marker mark={searchText}>
-            <Typography gutterBottom></Typography>
+            <Box className={styles.dateBox}>
+            <CalendarIcon className={styles.calendarIcon}/>
+            <PublishedDate  date={date}/>
+            </Box>
             <Typography gutterBottom variant="h5" component="div">{title}</Typography>
           </Marker>
           <Marker mark={searchText}>
@@ -40,7 +47,7 @@ export const ArticleCard = ({id, title, imgUrl, summary, searchText}:{
       </CardActionArea>
       <CardActions>
         <Link to={`article/${id}`}>
-        <Button size="small" color="primary" onClick={()=> dispatch(updateId(id))}>Read more</Button>
+        <Button size="small" color="primary"  onClick={()=> dispatch(updateId(id))}>Read more</Button>
         </Link>
       </CardActions>
     </Card>
