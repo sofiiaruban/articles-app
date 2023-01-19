@@ -1,6 +1,6 @@
 export interface ArticleItem {
     key?: any,
-    id: number,
+    id: number | any,
     featured?: boolean,
     title: string,
     url: string,

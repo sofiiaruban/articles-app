@@ -14,7 +14,7 @@ export const ArticleInfo = ({id}:{id:number}) => {
   }
 
   if(error) {
-    return (<StatusMessage message=" Error while loading"/>) 
+    return (<StatusMessage message="Error while loading"/>) 
   }
     
   return (
