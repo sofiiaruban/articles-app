@@ -74,7 +74,7 @@ export const Home = () => {
           </Box>
           
           <Box sx={{ flexGrow: 1 }}>
-            <Grid className={styles.articleList} container spacing={4}>
+            <Grid className={styles.articleList} container spacing={6}>
               {filteredList.map((article) =>
               <Grid item xs={12} sm={6} md={4} key={article.id} >
               <ArticleCard id={article.id}
