@@ -1,7 +1,5 @@
-import Box from '@mui/material/Box';
-import React, { FC } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import styles from './App.module.scss';
+import  { FC } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { ArticleInfo } from './pages/ArticleInfo';
 import { Home } from './pages/Home';
 import { useSelector} from 'react-redux'
@@ -11,13 +9,11 @@ const  App:FC = () => {
   const idValue = useSelector((state: RootState) => state.id.value);
 
   return (
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="article/:id" element={<ArticleInfo id={idValue}/>}/>
       </Routes>
-    
-  );
+  )
 }
 
 export default App;
