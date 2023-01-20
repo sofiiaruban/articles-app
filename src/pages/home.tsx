@@ -1,5 +1,4 @@
-import { Box, FormControl, InputAdornment } from "@mui/material";
-import InputLabel from "@mui/material/InputLabel";
+import { Box, InputAdornment } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Typography from '@mui/material/Typography';
 import { SearchIcon } from "../assets/icons/SearchIcon";
@@ -13,7 +12,6 @@ import { RootState } from "../store/store";
 import { ArticleItem, ArticleItems } from "../types/types";
 import { useDispatch } from "react-redux";
 import { updateFilteredList, updateInputValue } from "../store/articleFilterSlice";
-import { useTransition } from "react";
 import { StatusMessage } from "../components/StatusMessage";
 
 export const Home = () => {
