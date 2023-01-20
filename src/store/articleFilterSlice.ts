@@ -1,6 +1,5 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useGetArticlesQuery } from '../services/articleApi';
 import { ArticleItems, FilterStates} from '../types/types';
 
 
