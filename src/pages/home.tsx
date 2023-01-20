@@ -37,11 +37,12 @@ export const Home = () => {
   const articleFilter = (key:any) => {
       return data ? data.filter(article => article[key as keyof ArticleItem].toLowerCase().includes(inputValue.toLowerCase())) : [];
   }
+
   const uniqueArticlesList = () => {
     let list = articleFilter("title").concat(articleFilter("summary"));
     let jsonArticles = list.map((article)=>JSON.stringify(article));
 
-    return Array.from(new Set( jsonArticles)).map(article=> JSON.parse(article));
+    return Array.from(new Set(jsonArticles)).map(article=> JSON.parse(article));
   }
   const inputChangeHandler = (event: { target: { value: string; }; }) => {
     dispatch(updateInputValue(event?.target.value));
