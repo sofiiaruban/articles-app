@@ -12,7 +12,7 @@ import { Box, FormControl, InputAdornment } from "@mui/material";
 import { SearchIcon } from '../assets/icons/SearchIcon';
 import { CalendarIcon } from '../assets/icons/CalendarIcon';
 import { PublishedDate } from './PublishedDate';
-import { ArrowRightIcon } from '../assets/icons/ArrorRightIcon';
+import { ArrowRightIcon } from '../assets/icons/ArrowRightIcon';
 export const ArticleCard = ({id, title, imgUrl, summary, searchText, date}:{
     id: number, 
     title: string,

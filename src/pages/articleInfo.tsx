@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeftIcon } from "../assets/icons/ArrorLeftIcon";
+import { ArrowLeftIcon } from "../assets/icons/ArrowLeftIcon";
 import { StatusMessage } from "../components/StatusMessage";
 import { useGetArticleByIdQuery } from "../services/articleApi";
 import styles from "./ArticleInfo.module.scss";
