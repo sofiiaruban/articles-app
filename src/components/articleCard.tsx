@@ -12,6 +12,7 @@ import { Box } from "@mui/material";
 import { CalendarIcon } from '../assets/icons/CalendarIcon';
 import { PublishedDate } from './PublishedDate';
 import { ArrowRightIcon } from '../assets/icons/ArrowRightIcon';
+
 export const ArticleCard = ({id, title, imgUrl, summary, searchText, date}:{
     id: number, 
     title: string,
