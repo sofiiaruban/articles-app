@@ -48,7 +48,7 @@ export const ArticleCard = ({id, title, imgUrl, summary, searchText, date}:{
       </CardActionArea>
       <CardActions>
       <Link to={`article/${id}`}>
-        <Button sx={{"&:hover": {backgroundColor: "transparent", }}}  size="medium" onClick={()=> dispatch(updateId(id))} endIcon={<ArrowRightIcon className={styles.arrowRightIcon}/>}>Read more</Button>
+        <Button sx={{"&:hover": {backgroundColor: "transparent", }}} className={styles.button} size="medium" onClick={()=> dispatch(updateId(id))} endIcon={<ArrowRightIcon className={styles.arrowRightIcon}/>}>Read more</Button>
       </Link>
       </CardActions>
     </Card>

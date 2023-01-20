@@ -28,7 +28,7 @@ const theme = createTheme({
     },
     h5:{
       fontWeight: 400,
-      fontSize: "24px",
+      fontSize: "22px",
     },
     button: {
       fontWeight: 600,
