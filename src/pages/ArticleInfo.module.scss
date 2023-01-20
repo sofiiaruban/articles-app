@@ -2,8 +2,12 @@
     width: 100%;
     max-height: 15rem;
 }
+.container {
+    position: relative;
+}
 .contentBox {
     width: 80%;
+    max-height: 60rem;
     text-align: center;
     margin-top: -6rem;
     background-color: #FFFFFF;
@@ -17,6 +21,18 @@
         margin: 0 0 1.5rem 0;
     }
     .summary {
-        font-size: 18;
+        text-align: justify;
     }
+}
+.button {
+    position: fixed;
+    bottom: 2rem;
+    left:10%;
+    padding: 0;
+}
+.arrowIcon {
+    margin:  1rem 0 0 0;
+    width: 36px;
+    height: 30px;
+    padding: 0;
 }

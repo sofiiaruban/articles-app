@@ -33,6 +33,9 @@ const theme = createTheme({
     button: {
       fontWeight: 600,
       fontSize: "1.2rem",
+    },
+    subtitle1: {
+      fontSize: "18px",
     }
   },
   palette: {

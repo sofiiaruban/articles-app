@@ -37,16 +37,18 @@ export const Home = () => {
   const articleFilter = (key:any) => {
       return data ? data.filter(article => article[key as keyof ArticleItem].toLowerCase().includes(inputValue.toLowerCase())) : [];
   }
-  //const list = articleFilter("title").concat(articleFilter("summary"));
-  
+  const uniqueArticlesList = () => {
+    let list = articleFilter("title").concat(articleFilter("summary"));
+    let jsonArticles = list.map((article)=>JSON.stringify(article));
+
+    return Array.from(new Set( jsonArticles)).map(article=> JSON.parse(article));
+  }
   const inputChangeHandler = (event: { target: { value: string; }; }) => {
     dispatch(updateInputValue(event?.target.value));
-    dispatch(updateFilteredList(articleFilter("title")));
+    dispatch(updateFilteredList(uniqueArticlesList()));
   }
   
-  //const list = articleFilter("title").concat(articleFilter("summary"));
-  //console.log(Array.from(new Set (list)));
-  //console.log(inputValue);
+
     return (
       <Container maxWidth="xl">
         <Box className={styles.container}>
@@ -58,7 +60,7 @@ export const Home = () => {
             id="outlined-basic"
             className={styles.textInput}
             fullWidth
-            onChange = {inputChangeHandler}
+            onChange={inputChangeHandler}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -67,6 +69,7 @@ export const Home = () => {
               ),
             }}
             variant="outlined"
+            defaultValue={inputValue}
           />
           <Typography className={styles.results} mt={2} variant="body2">Results: {filteredList.length}</Typography>
           </Box>
