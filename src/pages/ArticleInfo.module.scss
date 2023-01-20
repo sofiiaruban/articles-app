@@ -5,7 +5,6 @@
 
 .contentBox {
     width: 80%;
-    max-height: 60rem;
     text-align: center;
     margin-top: -6rem;
     background-color: #FFFFFF;
@@ -23,8 +22,8 @@
     }
 }
 .button {
-    position: fixed;
-    bottom: 2rem;
+    position: absolute;
+    bottom: 1rem;
     left:10%;
     padding: 0;
 }

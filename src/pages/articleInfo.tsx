@@ -1,4 +1,5 @@
 import { Box} from "@mui/material";
+import Grid from '@mui/material/Grid';
 import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
@@ -28,13 +29,14 @@ export const ArticleInfo = ({id}:{id:number}) => {
         className={styles.img}
         component="img"
         image={data?.imageUrl}
-        alt="article" />
+        alt="article"
+        sx={{ zIndex: 'modal' }} />
     </Box>
-      <Box className={styles.contentBox}>
+      <Box className={styles.contentBox} sx={{ bgcolor: "#FFFFFF", zIndex: "tooltip"}}>
           <Typography className={styles.title} variant="h4">{data?.title}</Typography>
           <Typography className={styles.summary} variant="subtitle1">{data?.summary}</Typography>
       </Box>
-      <Button startIcon={<ArrowLeftIcon className={styles.arrowIcon} />}size="medium"className={styles.button} color="primary" onClick={() => navigate('/', { replace: true })}>Back to homepage</Button>
+    <Button  startIcon={<ArrowLeftIcon className={styles.arrowIcon} />}size="medium" className={styles.button} color="primary" onClick={() => navigate('/', { replace: true })}>Back to homepage</Button>
     </>
     
   )
